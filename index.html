@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preguntas frecuentes — Mendu Market</title>
+<style>
+  :root {
+    --lila-oscuro: #4c2a70;
+    --lila-medio: #7c4fa3;
+    --lila-claro: #e9dcf3;
+    --fondo: #faf8fc;
+    --texto: #2b1f36;
+    --texto-suave: #6b5c7d;
+    --blanco: #ffffff;
+    --linea: #e3d6ed;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    line-height: 1.5;
+  }
+
+  .hero {
+    background: linear-gradient(135deg, var(--lila-claro) 0%, var(--fondo) 70%);
+    padding: 64px 24px 56px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 700;
+    max-width: 640px;
+    margin: 0 auto 16px;
+    color: var(--lila-oscuro);
+  }
+
+  .hero p {
+    font-size: 17px;
+    color: var(--texto-suave);
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .contenedor {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .categoria {
+    margin-top: 48px;
+  }
+
+  .categoria-titulo {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--lila-medio);
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+
+  details {
+    background: var(--blanco);
+    border: 1px solid var(--linea);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+
+  summary {
+    padding: 18px 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15.5px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+  }
+
+  summary::-webkit-details-marker { display: none; }
+
+  summary::after {
+    content: "+";
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--lila-medio);
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  details[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .respuesta {
+    padding: 0 20px 18px;
+    color: var(--texto-suave);
+    font-size: 15px;
+  }
+
+  .contacto {
+    margin-top: 64px;
+    background: var(--lila-claro);
+    border-radius: 16px;
+    padding: 40px 28px;
+    text-align: center;
+  }
+
+  .contacto h2 {
+    font-size: 22px;
+    color: var(--lila-oscuro);
+    margin-bottom: 10px;
+  }
+
+  .contacto p {
+    color: var(--texto-suave);
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+
+  .boton {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+  }
+
+  .boton:hover { opacity: 0.88; }
+
+  .boton-primario {
+    background: var(--lila-oscuro);
+    color: var(--blanco);
+  }
+
+  .cierre {
+    margin-top: 40px;
+    text-align: center;
+    padding: 48px 24px 64px;
+  }
+
+  .cierre h2 {
+    font-size: 24px;
+    color: var(--texto);
+    margin-bottom: 10px;
+  }
+
+  .cierre p {
+    color: var(--texto-suave);
+    margin-bottom: 24px;
+    font-size: 15px;
+  }
+
+  .boton-volver {
+    background: var(--texto);
+    color: var(--blanco);
+    padding: 16px 36px;
+    font-size: 16px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--texto-suave);
+    font-size: 13px;
+    border-top: 1px solid var(--linea);
+  }
+</style>
+</head>
+<body>
+
+  <div class="hero">
+    <h1>¿Tenés dudas antes de comprar?</h1>
+    <p>Acá encontrás las respuestas más rápidas sobre pagos, envíos y cambios en Mendu Market.</p>
+  </div>
+
+  <div class="contenedor">
+
+    <div class="categoria">
+      <div class="categoria-titulo">PAGOS</div>
+
+      <details>
+        <summary>¿Qué medios de pago aceptan?</summary>
+        <div class="respuesta">Aceptamos Mercado Pago: tarjetas de crédito, débito y dinero en cuenta.</div>
+      </details>
+
+      <details>
+        <summary>¿Cómo sé si mi compra fue confirmada?</summary>
+        <div class="respuesta">Al pagar con Mercado Pago, tu compra queda registrada de forma automática. No necesitás enviarnos ningún comprobante.</div>
+      </details>
+    </div>
+
+    <div class="categoria">
+      <div class="categoria-titulo">ENVÍOS</div>
+
+      <details>
+        <summary>¿Hacen envíos a todo el país?</summary>
+        <div class="respuesta">Sí, enviamos a todo el país. El envío tarda entre 3 y 5 días.</div>
+      </details>
+
+      <details>
+        <summary>¿Cuánto cuesta el envío?</summary>
+        <div class="respuesta">En algunos productos el envío es gratis. Consultá en la ficha de cada producto.</div>
+      </details>
+    </div>
+
+    <div class="categoria">
+      <div class="categoria-titulo">CAMBIOS Y DEVOLUCIONES</div>
+
+      <details>
+        <summary>¿Puedo cambiar o devolver un producto?</summary>
+        <div class="respuesta">Sí, aceptamos cambios hasta 3 días después de la compra. El producto debe estar sin uso o con poco uso.</div>
+      </details>
+    </div>
+
+    <div class="categoria">
+      <div class="categoria-titulo">ATENCIÓN AL CLIENTE</div>
+
+      <details>
+        <summary>¿Cómo hago si tengo un problema con mi pedido?</summary>
+        <div class="respuesta">Escribinos por WhatsApp y te ayudamos a resolverlo.</div>
+      </details>
+    </div>
+
+    <div class="contacto">
+      <h2>¿Todavía tenés alguna duda?</h2>
+      <p>Escribinos y te respondemos antes de que compres.</p>
+      <a href="https://wa.me/TUNUMERO" class="boton boton-primario">Escribinos por WhatsApp</a>
+    </div>
+
+    <div class="cierre">
+      <h2>¿Ya encontraste lo que buscabas?</h2>
+      <p>Volvé a la tienda y seguí eligiendo tus productos.</p>
+      <a href="https://mendumarket.com" class="boton boton-volver">Volver a Mendu Market</a>
+    </div>
+
+  </div>
+
+  <footer>
+    Mendu Market · Maipú, Mendoza, Argentina
+  </footer>
+
+</body>
+</html>
