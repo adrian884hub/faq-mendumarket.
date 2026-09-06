@@ -1,253 +1,443 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Preguntas frecuentes — Mendu Market</title>
-<style>
-  :root {
-    --lila-oscuro: #4c2a70;
-    --lila-medio: #7c4fa3;
-    --lila-claro: #e9dcf3;
-    --fondo: #faf8fc;
-    --texto: #2b1f36;
-    --texto-suave: #6b5c7d;
-    --blanco: #ffffff;
-    --linea: #e3d6ed;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Centro de ayuda de Mendu Market: respuestas sobre pagos, envíos, cambios y atención al cliente.">
+  <title>Centro de Ayuda | Mendu Market</title>
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: var(--fondo);
-    color: var(--texto);
-    line-height: 1.5;
-  }
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-  .hero {
-    background: linear-gradient(135deg, var(--lila-claro) 0%, var(--fondo) 70%);
-    padding: 64px 24px 56px;
-    text-align: center;
-  }
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            mendu: {
+              950: '#1f0d33',
+              900: '#2d1449',
+              800: '#3e1c63',
+              700: '#522485',
+              600: '#692fa8',
+              500: '#8a43db',
+              300: '#caa3f5',
+              100: '#f5eeff',
+              50: '#faf6fe'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          },
+          boxShadow: {
+            'glow': '0 20px 40px -15px rgba(82, 36, 133, 0.3)',
+            'card': '0 10px 30px -5px rgba(31, 13, 51, 0.06)',
+            'hover-card': '0 20px 35px -8px rgba(82, 36, 133, 0.16)'
+          }
+        }
+      }
+    }
+  </script>
 
-  .hero h1 {
-    font-size: clamp(28px, 5vw, 42px);
-    font-weight: 700;
-    max-width: 640px;
-    margin: 0 auto 16px;
-    color: var(--lila-oscuro);
-  }
-
-  .hero p {
-    font-size: 17px;
-    color: var(--texto-suave);
-    max-width: 480px;
-    margin: 0 auto;
-  }
-
-  .contenedor {
-    max-width: 720px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .categoria {
-    margin-top: 48px;
-  }
-
-  .categoria-titulo {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--lila-medio);
-    margin-bottom: 12px;
-    letter-spacing: 0.02em;
-  }
-
-  details {
-    background: var(--blanco);
-    border: 1px solid var(--linea);
-    border-radius: 10px;
-    margin-bottom: 10px;
-    overflow: hidden;
-  }
-
-  summary {
-    padding: 18px 20px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 15.5px;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-  }
-
-  summary::-webkit-details-marker { display: none; }
-
-  summary::after {
-    content: "+";
-    font-size: 22px;
-    font-weight: 400;
-    color: var(--lila-medio);
-    flex-shrink: 0;
-    transition: transform 0.2s ease;
-  }
-
-  details[open] summary::after {
-    transform: rotate(45deg);
-  }
-
-  .respuesta {
-    padding: 0 20px 18px;
-    color: var(--texto-suave);
-    font-size: 15px;
-  }
-
-  .contacto {
-    margin-top: 64px;
-    background: var(--lila-claro);
-    border-radius: 16px;
-    padding: 40px 28px;
-    text-align: center;
-  }
-
-  .contacto h2 {
-    font-size: 22px;
-    color: var(--lila-oscuro);
-    margin-bottom: 10px;
-  }
-
-  .contacto p {
-    color: var(--texto-suave);
-    margin-bottom: 20px;
-    font-size: 15px;
-  }
-
-  .boton {
-    display: inline-block;
-    padding: 14px 28px;
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 15px;
-    text-decoration: none;
-    transition: opacity 0.15s ease;
-  }
-
-  .boton:hover { opacity: 0.88; }
-
-  .boton-primario {
-    background: var(--lila-oscuro);
-    color: var(--blanco);
-  }
-
-  .cierre {
-    margin-top: 40px;
-    text-align: center;
-    padding: 48px 24px 64px;
-  }
-
-  .cierre h2 {
-    font-size: 24px;
-    color: var(--texto);
-    margin-bottom: 10px;
-  }
-
-  .cierre p {
-    color: var(--texto-suave);
-    margin-bottom: 24px;
-    font-size: 15px;
-  }
-
-  .boton-volver {
-    background: var(--texto);
-    color: var(--blanco);
-    padding: 16px 36px;
-    font-size: 16px;
-  }
-
-  footer {
-    text-align: center;
-    padding: 24px;
-    color: var(--texto-suave);
-    font-size: 13px;
-    border-top: 1px solid var(--linea);
-  }
-</style>
+  <style>
+    details summary::-webkit-details-marker { display: none; }
+    details[open] summary .toggle-icon { 
+      transform: rotate(45deg); 
+      background-color: #522485; 
+      color: #ffffff; 
+    }
+    details[open] { 
+      border-color: #caa3f5; 
+      box-shadow: 0 15px 30px -5px rgba(82, 36, 133, 0.1); 
+    }
+    
+    /* Animación suave de elevación interactiva */
+    .interactive-hover {
+      transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .interactive-hover:hover {
+      transform: translateY(-4px) scale(1.01);
+    }
+  </style>
 </head>
-<body>
+<body class="font-sans bg-mendu-50 text-gray-900 antialiased selection:bg-mendu-500 selection:text-white">
 
-  <div class="hero">
-    <h1>¿Tenés dudas antes de comprar?</h1>
-    <p>Acá encontrás las respuestas más rápidas sobre pagos, envíos y cambios en Mendu Market.</p>
+  <!-- TOP ANNOUNCEMENT BAR -->
+  <div class="bg-mendu-950 text-white text-xs sm:text-sm font-bold tracking-wide py-2.5 px-4 text-center border-b border-white/10">
+    <span class="inline-flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      Mendu Market · Centro de ayuda
+    </span>
   </div>
 
-  <div class="contenedor">
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-purple-100 shadow-sm transition-all duration-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Logo Oficial Mendu Market -->
+      <a href="https://mendumarket.com" class="flex items-center group transition-transform duration-200 hover:scale-[1.02]" aria-label="Volver a Mendu Market">
+        <!-- Reemplazá el enlace 'src' con el archivo de tu logo si lo tenés alojado en Shopify -->
+        <img 
+          src="WhatsApp Image 2026-08-25 at 15.32.49.jpeg" 
+          alt="Mendu Market Logo" 
+          class="h-10 sm:h-12 w-auto object-contain rounded-lg"
+          onerror="this.onerror=null; this.src='https://mendumarket.com/cdn/shop/files/logo.png';"
+        />
+      </a>
 
-    <div class="categoria">
-      <div class="categoria-titulo">PAGOS</div>
-
-      <details>
-        <summary>¿Qué medios de pago aceptan?</summary>
-        <div class="respuesta">Aceptamos Mercado Pago: tarjetas de crédito, débito y dinero en cuenta.</div>
-      </details>
-
-      <details>
-        <summary>¿Cómo sé si mi compra fue confirmada?</summary>
-        <div class="respuesta">Al pagar con Mercado Pago, tu compra queda registrada de forma automática. No necesitás enviarnos ningún comprobante.</div>
-      </details>
+      <a href="https://mendumarket.com" class="interactive-hover inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-mendu-100 text-mendu-900 text-xs sm:text-sm font-bold shadow-sm hover:bg-mendu-200/80">
+        <span>Volver a la tienda</span>
+        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
     </div>
+  </header>
 
-    <div class="categoria">
-      <div class="categoria-titulo">ENVÍOS</div>
+  <!-- HERO SECTION CON VIDEO DE CONFIANZA -->
+  <section class="relative pt-12 pb-20 lg:pt-16 lg:pb-28 overflow-hidden bg-gradient-to-b from-white via-mendu-50 to-[#f3ebfc]">
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-mendu-300/20 rounded-full blur-3xl pointer-events-none"></div>
 
-      <details>
-        <summary>¿Hacen envíos a todo el país?</summary>
-        <div class="respuesta">Sí, enviamos a todo el país. El envío tarda entre 3 y 5 días.</div>
-      </details>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Texto Hero -->
+        <div class="lg:col-span-7 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-mendu-100 border border-purple-200 text-mendu-800 text-xs font-bold tracking-wide uppercase mb-6 shadow-sm">
+            <i data-lucide="shield-check" class="w-4 h-4 text-mendu-700"></i> Centro de ayuda oficial
+          </div>
 
-      <details>
-        <summary>¿Cuánto cuesta el envío?</summary>
-        <div class="respuesta">En algunos productos el envío es gratis. Consultá en la ficha de cada producto.</div>
-      </details>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-mendu-950 tracking-tight leading-[1.08] mb-6">
+            Comprá con más <br class="hidden sm:block" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-mendu-700 via-mendu-500 to-purple-600">confianza.</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-gray-600 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
+            Respuestas claras a las preguntas más importantes sobre pagos, envíos, cambios y atención al cliente de Mendu Market.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="#preguntas" class="interactive-hover w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-mendu-900 text-white font-bold text-sm sm:text-base shadow-glow hover:bg-mendu-800">
+              <span>Ver preguntas frecuentes</span>
+              <i data-lucide="arrow-down" class="w-4 h-4"></i>
+            </a>
+
+            <a href="https://wa.me/5492616373263" target="_blank" rel="noopener noreferrer" class="interactive-hover w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-white border border-purple-200 text-mendu-950 font-bold text-sm sm:text-base shadow-sm hover:bg-gray-50">
+              <i data-lucide="message-circle" class="w-5 h-5 text-[#25D366]"></i>
+              <span>Hablar por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Módulo: Video de Confianza / Despacho / Testimonio -->
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="w-full max-w-sm bg-white rounded-3xl p-4 shadow-hover-card border border-purple-100 relative group interactive-hover">
+            
+            <div class="relative rounded-2xl overflow-hidden aspect-[9/14] bg-mendu-950 flex flex-col justify-end">
+              <!-- Video HTML5 (reemplaza 'src' por tu video de empaque o producto) -->
+              <video 
+                class="absolute inset-0 w-full h-full object-cover" 
+                autoplay 
+                muted 
+                loop 
+                playsinline
+                poster="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80">
+                <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-holding-a-wrapped-package-41484-large.mp4" type="video/mp4">
+              </video>
+
+              <!-- Gradiente de superposición -->
+              <div class="absolute inset-0 bg-gradient-to-t from-mendu-950/90 via-mendu-950/20 to-transparent pointer-events-none"></div>
+
+              <!-- Badge en vivo -->
+              <div class="absolute top-4 left-4 z-10 flex items-center gap-2 bg-black/50 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="text-[11px] font-bold text-white uppercase tracking-wider">Así despachamos</span>
+              </div>
+
+              <!-- Datos flotantes de garantía sobre el video -->
+              <div class="relative z-10 p-5 text-white">
+                <h4 class="font-extrabold text-base tracking-tight mb-1">Empaques 100% seguros</h4>
+                <p class="text-xs text-purple-200 leading-snug">Cada producto es revisado, protegido y embalado cuidadosamente antes de salir hacia tu domicilio.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
     </div>
+  </section>
 
-    <div class="categoria">
-      <div class="categoria-titulo">CAMBIOS Y DEVOLUCIONES</div>
+  <!-- BARRAS DE CONFIANZA DESTACADAS -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 -mt-8 relative z-20" aria-label="Información destacada">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      
+      <div class="interactive-hover bg-white rounded-2xl p-5 border border-purple-100 shadow-card flex items-center gap-4 cursor-pointer">
+        <div class="w-12 h-12 rounded-xl bg-mendu-100 text-mendu-800 flex items-center justify-center text-2xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+          🔒
+        </div>
+        <div>
+          <strong class="block text-sm font-extrabold text-mendu-950">Compra segura</strong>
+          <small class="block text-gray-500 font-semibold text-xs mt-0.5">Proceso simple y claro</small>
+        </div>
+      </div>
 
-      <details>
-        <summary>¿Puedo cambiar o devolver un producto?</summary>
-        <div class="respuesta">Sí, aceptamos cambios hasta 3 días después de la compra. El producto debe estar sin uso o con poco uso.</div>
-      </details>
+      <div class="interactive-hover bg-white rounded-2xl p-5 border border-purple-100 shadow-card flex items-center gap-4 cursor-pointer">
+        <div class="w-12 h-12 rounded-xl bg-mendu-100 text-mendu-800 flex items-center justify-center text-2xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+          💳
+        </div>
+        <div>
+          <strong class="block text-sm font-extrabold text-mendu-950">Mercado Pago</strong>
+          <small class="block text-gray-500 font-semibold text-xs mt-0.5">Pagos registrados automáticamente</small>
+        </div>
+      </div>
+
+      <div class="interactive-hover bg-white rounded-2xl p-5 border border-purple-100 shadow-card flex items-center gap-4 cursor-pointer">
+        <div class="w-12 h-12 rounded-xl bg-mendu-100 text-mendu-800 flex items-center justify-center text-2xl flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+          🚚
+        </div>
+        <div>
+          <strong class="block text-sm font-extrabold text-mendu-950">Envíos al país</strong>
+          <small class="block text-gray-500 font-semibold text-xs mt-0.5">Información antes de comprar</small>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-    <div class="categoria">
-      <div class="categoria-titulo">ATENCIÓN AL CLIENTE</div>
+  <!-- CONTENIDO PRINCIPAL: SIDEBAR + ACORDEONES -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 pt-20 pb-20" id="preguntas">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
 
-      <details>
-        <summary>¿Cómo hago si tengo un problema con mi pedido?</summary>
-        <div class="respuesta">Escribinos por WhatsApp y te ayudamos a resolverlo.</div>
-      </details>
+      <!-- Sidebar Navegación Rápida -->
+      <aside class="lg:col-span-4 lg:sticky lg:top-28">
+        <div class="bg-white rounded-3xl p-6 sm:p-7 border border-purple-100 shadow-card">
+          <span class="text-[11px] font-extrabold uppercase tracking-widest text-mendu-600">Encontrá tu respuesta</span>
+          <h3 class="text-xl font-extrabold text-mendu-950 mt-2 mb-2 leading-snug">
+            Todo lo que necesitás saber antes de comprar.
+          </h3>
+          <p class="text-xs text-gray-500 font-medium mb-6">
+            Elegí una categoría para explorar las consultas más comunes.
+          </p>
+
+          <nav class="flex flex-col gap-2.5">
+            <a href="#pagos" class="interactive-hover flex items-center justify-between px-4 py-3.5 rounded-xl font-bold text-sm text-gray-700 bg-gray-50 hover:bg-mendu-100 hover:text-mendu-900 border border-transparent hover:border-purple-200">
+              <span class="flex items-center gap-3">
+                <span>💳</span> Pagos
+              </span>
+              <span class="text-xs text-mendu-500 font-extrabold bg-white px-2 py-0.5 rounded-md shadow-sm">01</span>
+            </a>
+
+            <a href="#envios" class="interactive-hover flex items-center justify-between px-4 py-3.5 rounded-xl font-bold text-sm text-gray-700 bg-gray-50 hover:bg-mendu-100 hover:text-mendu-900 border border-transparent hover:border-purple-200">
+              <span class="flex items-center gap-3">
+                <span>🚚</span> Envíos
+              </span>
+              <span class="text-xs text-mendu-500 font-extrabold bg-white px-2 py-0.5 rounded-md shadow-sm">02</span>
+            </a>
+
+            <a href="#cambios" class="interactive-hover flex items-center justify-between px-4 py-3.5 rounded-xl font-bold text-sm text-gray-700 bg-gray-50 hover:bg-mendu-100 hover:text-mendu-900 border border-transparent hover:border-purple-200">
+              <span class="flex items-center gap-3">
+                <span>🔄</span> Cambios
+              </span>
+              <span class="text-xs text-mendu-500 font-extrabold bg-white px-2 py-0.5 rounded-md shadow-sm">03</span>
+            </a>
+
+            <a href="#atencion" class="interactive-hover flex items-center justify-between px-4 py-3.5 rounded-xl font-bold text-sm text-gray-700 bg-gray-50 hover:bg-mendu-100 hover:text-mendu-900 border border-transparent hover:border-purple-200">
+              <span class="flex items-center gap-3">
+                <span>💬</span> Atención
+              </span>
+              <span class="text-xs text-mendu-500 font-extrabold bg-white px-2 py-0.5 rounded-md shadow-sm">04</span>
+            </a>
+          </nav>
+
+          <div class="mt-6 pt-5 border-t border-purple-100 text-xs font-semibold text-gray-400">
+            Seleccioná una pregunta para desplegar la respuesta.
+          </div>
+        </div>
+      </aside>
+
+      <!-- Lista de Preguntas Frecuentes -->
+      <section class="lg:col-span-8">
+        
+        <div class="mb-10">
+          <h2 class="text-3xl font-extrabold text-mendu-950 tracking-tight mb-2">Preguntas frecuentes</h2>
+          <p class="text-sm font-semibold text-gray-500">La información que necesitás, en un solo lugar.</p>
+        </div>
+
+        <div class="space-y-10">
+
+          <!-- 01: Pagos -->
+          <div class="scroll-mt-28" id="pagos">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-mendu-100 text-mendu-800 flex items-center justify-center text-lg shadow-sm">
+                💳
+              </div>
+              <h3 class="text-lg font-extrabold text-mendu-900 tracking-tight">Pagos</h3>
+            </div>
+
+            <div class="space-y-3">
+              <details class="interactive-hover group bg-white rounded-2xl border border-purple-100/90 overflow-hidden" open>
+                <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-bold text-sm sm:text-base text-mendu-950 select-none">
+                  <span>¿Qué medios de pago aceptan?</span>
+                  <div class="toggle-icon w-8 h-8 rounded-full bg-mendu-100 text-mendu-800 flex items-center justify-center font-bold text-lg flex-shrink-0 transition-all duration-300">
+                    +
+                  </div>
+                </summary>
+                <div class="px-5 sm:px-6 pb-6 text-sm text-gray-600 font-medium leading-relaxed border-t border-purple-50 pt-4">
+                  Aceptamos Mercado Pago: tarjetas de crédito, débito y dinero en cuenta.
+                </div>
+              </details>
+
+              <details class="interactive-hover group bg-white rounded-2xl border border-purple-100/90 overflow-hidden">
+                <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-bold text-sm sm:text-base text-mendu-950 select-none">
+                  <span>¿Cómo sé si mi compra fue confirmada?</span>
+                  <div class="toggle-icon w-8 h-8 rounded-full bg-mendu-100 text-mendu-800 flex items-center justify-center font-bold text-lg flex-shrink-0 transition-all duration-300">
+                    +
+                  </div>
+                </summary>
+                <div class="px-5 sm:px-6 pb-6 text-sm text-gray-600 font-medium leading-relaxed border-t border-purple-50 pt-4">
+                  Al pagar con Mercado Pago, tu compra queda registrada de forma automática. No necesitás enviarnos ningún comprobante.
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <!-- 02: Envíos -->
+          <div class="scroll-mt-28" id="envios">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-mendu-100 text-mendu-800 flex items-center justify-center text-lg shadow-sm">
+                🚚
+              </div>
+              <h3 class="text-lg font-extrabold text-mendu-900 tracking-tight">Envíos</h3>
+            </div>
+
+            <div class="space-y-3">
+              <details class="interactive-hover group bg-white rounded-2xl border border-purple-100/90 overflow-hidden">
+                <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-bold text-sm sm:text-base text-mendu-950 select-none">
+                  <span>¿Hacen envíos a todo el país?</span>
+                  <div class="toggle-icon w-8 h-8 rounded-full bg-mendu-100 text-mendu-800 flex items-center justify-center font-bold text-lg flex-shrink-0 transition-all duration-300">
+                    +
+                  </div>
+                </summary>
+                <div class="px-5 sm:px-6 pb-6 text-sm text-gray-600 font-medium leading-relaxed border-t border-purple-50 pt-4">
+                  Sí, enviamos a todo el país. El envío tarda entre 3 y 5 días.
+                </div>
+              </details>
+
+              <details class="interactive-hover group bg-white rounded-2xl border border-purple-100/90 overflow-hidden">
+                <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-bold text-sm sm:text-base text-mendu-950 select-none">
+                  <span>¿Cuánto cuesta el envío?</span>
+                  <div class="toggle-icon w-8 h-8 rounded-full bg-mendu-100 text-mendu-800 flex items-center justify-center font-bold text-lg flex-shrink-0 transition-all duration-300">
+                    +
+                  </div>
+                </summary>
+                <div class="px-5 sm:px-6 pb-6 text-sm text-gray-600 font-medium leading-relaxed border-t border-purple-50 pt-4">
+                  En algunos productos el envío es gratis. Consultá en la ficha de cada producto.
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <!-- 03: Cambios y devoluciones -->
+          <div class="scroll-mt-28" id="cambios">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-mendu-100 text-mendu-800 flex items-center justify-center text-lg shadow-sm">
+                🔄
+              </div>
+              <h3 class="text-lg font-extrabold text-mendu-900 tracking-tight">Cambios y devoluciones</h3>
+            </div>
+
+            <div class="space-y-3">
+              <details class="interactive-hover group bg-white rounded-2xl border border-purple-100/90 overflow-hidden">
+                <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-bold text-sm sm:text-base text-mendu-950 select-none">
+                  <span>¿Puedo cambiar o devolver un producto?</span>
+                  <div class="toggle-icon w-8 h-8 rounded-full bg-mendu-100 text-mendu-800 flex items-center justify-center font-bold text-lg flex-shrink-0 transition-all duration-300">
+                    +
+                  </div>
+                </summary>
+                <div class="px-5 sm:px-6 pb-6 text-sm text-gray-600 font-medium leading-relaxed border-t border-purple-50 pt-4">
+                  Sí, aceptamos cambios hasta 3 días después de la compra. El producto debe estar sin uso o con poco uso.
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <!-- 04: Atención al cliente -->
+          <div class="scroll-mt-28" id="atencion">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-xl bg-mendu-100 text-mendu-800 flex items-center justify-center text-lg shadow-sm">
+                💬
+              </div>
+              <h3 class="text-lg font-extrabold text-mendu-900 tracking-tight">Atención al cliente</h3>
+            </div>
+
+            <div class="space-y-3">
+              <details class="interactive-hover group bg-white rounded-2xl border border-purple-100/90 overflow-hidden">
+                <summary class="flex items-center justify-between p-5 sm:p-6 cursor-pointer font-bold text-sm sm:text-base text-mendu-950 select-none">
+                  <span>¿Cómo hago si tengo un problema con mi pedido?</span>
+                  <div class="toggle-icon w-8 h-8 rounded-full bg-mendu-100 text-mendu-800 flex items-center justify-center font-bold text-lg flex-shrink-0 transition-all duration-300">
+                    +
+                  </div>
+                </summary>
+                <div class="px-5 sm:px-6 pb-6 text-sm text-gray-600 font-medium leading-relaxed border-t border-purple-50 pt-4">
+                  Escribinos por WhatsApp y te ayudamos a resolverlo.
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <!-- BANNER DE ASISTENCIA RÁPIDA -->
+          <div class="interactive-hover rounded-3xl p-8 sm:p-10 bg-gradient-to-br from-mendu-950 via-mendu-900 to-mendu-700 text-white shadow-card relative overflow-hidden mt-8">
+            <div class="relative z-10 max-w-lg">
+              <span class="inline-block text-[11px] font-extrabold uppercase tracking-widest text-mendu-300 mb-2">¿Necesitás ayuda?</span>
+              <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight mb-3">Estamos para ayudarte antes y después de tu compra.</h2>
+              <p class="text-sm text-purple-200 font-medium mb-6">Escribinos y te respondemos antes de que compres.</p>
+              
+              <a href="https://wa.me/5492616373263" target="_blank" rel="noopener noreferrer" class="interactive-hover inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white hover:bg-gray-100 text-mendu-950 font-bold text-sm shadow-md">
+                <i data-lucide="message-circle" class="w-4 h-4 text-[#25D366]"></i>
+                <span>Escribinos por WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
     </div>
+  </main>
 
-    <div class="contacto">
-      <h2>¿Todavía tenés alguna duda?</h2>
-      <p>Escribinos y te respondemos antes de que compres.</p>
-      <a href="https://wa.me/5492616373263" class="boton boton-primario">Escribinos por WhatsApp</a>
+  <!-- CIERRE / CALL TO ACTION A LA TIENDA -->
+  <section class="py-16 bg-white border-t border-purple-100 text-center">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-mendu-950 tracking-tight mb-3">¿Ya encontraste lo que buscabas?</h2>
+      <p class="text-sm font-semibold text-gray-500 mb-6">Volvé a la tienda y seguí eligiendo tus productos.</p>
+      
+      <a href="https://mendumarket.com" class="interactive-hover inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-mendu-950 text-white font-bold text-sm sm:text-base shadow-glow hover:bg-mendu-800">
+        <span>🛍️ Volver a Mendu Market</span>
+      </a>
+
+      <div class="text-xs font-bold text-gray-400 mt-6 tracking-wide">
+        Compra segura · Información clara · Atención al cliente
+      </div>
     </div>
+  </section>
 
-    <div class="cierre">
-      <h2>¿Ya encontraste lo que buscabas?</h2>
-      <p>Volvé a la tienda y seguí eligiendo tus productos.</p>
-      <a href="https://mendumarket.com" class="boton boton-volver">Volver a Mendu Market</a>
+  <!-- FOOTER -->
+  <footer class="bg-gray-50 border-t border-gray-200 py-8 text-center text-xs font-bold text-gray-500">
+    <div class="max-w-6xl mx-auto px-4">
+      Mendu Market · Maipú, Mendoza, Argentina
     </div>
-
-  </div>
-
-  <footer>
-         Mendu Market.com | Mendoza-Argentina
   </footer>
 
+  <script>
+    // Inicializar Lucide Icons
+    lucide.createIcons();
+  </script>
 </body>
 </html>
